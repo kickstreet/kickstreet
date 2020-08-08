@@ -1,0 +1,48 @@
+CRITICAL - 2020-08-02 21:04:20 --> Invalid file: front_end/.php
+#0 /home/customer/www/kickstreethome.com/public_html/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('front_end/.php')
+#1 /home/customer/www/kickstreethome.com/public_html/system/Common.php(1119): CodeIgniter\View\View->render('front_end/', Array, true)
+#2 /home/customer/www/kickstreethome.com/public_html/app/Views/plantilla/plantilla.php(5): view('front_end/')
+#3 /home/customer/www/kickstreethome.com/public_html/system/View/View.php(246): include('/home/customer/...')
+#4 /home/customer/www/kickstreethome.com/public_html/system/Common.php(1119): CodeIgniter\View\View->render('plantilla/plant...', Array, true)
+#5 /home/customer/www/kickstreethome.com/public_html/app/Controllers/Home.php(14): view('plantilla/plant...')
+#6 /home/customer/www/kickstreethome.com/public_html/system/CodeIgniter.php(918): App\Controllers\Home->index()
+#7 /home/customer/www/kickstreethome.com/public_html/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /home/customer/www/kickstreethome.com/public_html/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/customer/www/kickstreethome.com/public_html/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2020-08-02 21:06:21 --> Invalid file: front_end/.php
+#0 /home/customer/www/kickstreethome.com/public_html/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('front_end/.php')
+#1 /home/customer/www/kickstreethome.com/public_html/system/Common.php(1119): CodeIgniter\View\View->render('front_end/', Array, true)
+#2 /home/customer/www/kickstreethome.com/public_html/app/Views/plantilla/plantilla.php(5): view('front_end/')
+#3 /home/customer/www/kickstreethome.com/public_html/system/View/View.php(246): include('/home/customer/...')
+#4 /home/customer/www/kickstreethome.com/public_html/system/Common.php(1119): CodeIgniter\View\View->render('plantilla/plant...', Array, true)
+#5 /home/customer/www/kickstreethome.com/public_html/app/Controllers/Home.php(18): view('plantilla/plant...')
+#6 /home/customer/www/kickstreethome.com/public_html/system/CodeIgniter.php(918): App\Controllers\Home->index()
+#7 /home/customer/www/kickstreethome.com/public_html/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /home/customer/www/kickstreethome.com/public_html/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/customer/www/kickstreethome.com/public_html/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2020-08-02 21:06:23 --> Invalid file: front_end/.php
+#0 /home/customer/www/kickstreethome.com/public_html/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('front_end/.php')
+#1 /home/customer/www/kickstreethome.com/public_html/system/Common.php(1119): CodeIgniter\View\View->render('front_end/', Array, true)
+#2 /home/customer/www/kickstreethome.com/public_html/app/Views/plantilla/plantilla.php(5): view('front_end/')
+#3 /home/customer/www/kickstreethome.com/public_html/system/View/View.php(246): include('/home/customer/...')
+#4 /home/customer/www/kickstreethome.com/public_html/system/Common.php(1119): CodeIgniter\View\View->render('plantilla/plant...', Array, true)
+#5 /home/customer/www/kickstreethome.com/public_html/app/Controllers/Home.php(18): view('plantilla/plant...')
+#6 /home/customer/www/kickstreethome.com/public_html/system/CodeIgniter.php(918): App\Controllers\Home->index()
+#7 /home/customer/www/kickstreethome.com/public_html/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /home/customer/www/kickstreethome.com/public_html/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/customer/www/kickstreethome.com/public_html/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2020-08-02 21:06:37 --> Invalid file: front_end/.php
+#0 /home/customer/www/kickstreethome.com/public_html/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('front_end/.php')
+#1 /home/customer/www/kickstreethome.com/public_html/system/Common.php(1119): CodeIgniter\View\View->render('front_end/', Array, true)
+#2 /home/customer/www/kickstreethome.com/public_html/app/Views/plantilla/plantilla.php(5): view('front_end/')
+#3 /home/customer/www/kickstreethome.com/public_html/system/View/View.php(246): include('/home/customer/...')
+#4 /home/customer/www/kickstreethome.com/public_html/system/Common.php(1119): CodeIgniter\View\View->render('plantilla/plant...', Array, true)
+#5 /home/customer/www/kickstreethome.com/public_html/app/Controllers/Home.php(18): view('plantilla/plant...')
+#6 /home/customer/www/kickstreethome.com/public_html/system/CodeIgniter.php(918): App\Controllers\Home->index()
+#7 /home/customer/www/kickstreethome.com/public_html/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /home/customer/www/kickstreethome.com/public_html/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/customer/www/kickstreethome.com/public_html/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
