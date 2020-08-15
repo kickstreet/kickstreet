@@ -72,7 +72,7 @@
             <div class="top-link">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-7 col-md-offset-3 col-sm-9 hidden-xs">
+                        <div class="col-md-5 col-md-offset-3 col-sm-7 hidden-xs">
                             <!--div class="site-option">
                                 <ul>
                                     <li class="currency"><a href="#">USD <i class="fa fa-angle-down"></i> </a>
@@ -93,10 +93,13 @@
                                 <p>Call support free: <span> (800) 123 456 789</span></p>
                             </div-->
                         </div>
-                        <div class="col-md-2 col-sm-3">
+                        <div class="col-md-4 col-sm-5">
                             <div class="dashboard">
                                 <div class="account-menu">
                                     <ul>
+                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
                                         <li class="search">
                                             <a href="#">
                                                 <i class="fa fa-search"></i>
@@ -174,7 +177,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="/">
                                     <img src="assets/img/logo.png" alt="">
                                 </a>
                             </div>
@@ -265,6 +268,7 @@
         <!-- product main items area start -->
         <div class="product-main-items">
             <div class="container">
+                <br>
                 <!--<div class="row">
                     <div class="col-md-12">
                         <div class="location">

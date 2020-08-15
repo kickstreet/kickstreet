@@ -4,7 +4,7 @@ use CodeIgniter\Model;
 
 class UserModel extends Model{
   protected $table = 'users';
-  protected $allowedFields = ['firstname', 'lastname', 'email', 'password', 'updated_at'];
+  protected $allowedFields = ['firstname', 'lastname', 'email', 'password', 'rol_id', 'updated_at'];
   protected $beforeInsert = ['beforeInsert'];
   protected $beforeUpdate = ['beforeUpdate'];
 
@@ -31,5 +31,35 @@ class UserModel extends Model{
     return $data;
   }
 
+  public function activarCuenta($email){
+    $db      = \Config\Database::connect();
+    $builder = $db->table('users');
+    
+    $builder->select('*');
+    $builder->where('email',base64_decode($email));
+    $query = $builder->get()->getRow();
+    
+    // Si es proveedor dejamos activacion en pendiente
+    if($query->rol_id == 4){
+      $response = array("mensaje" => "Cuenta verificada pero pendiente de aprobación", "tipo" => "Proveedor");
+      $builder->set("estatus",3);
+    }
+
+    // Si es cliente activamos cuenta
+    else{
+      $builder->set("estatus",2);
+      $response = array("mensaje" => "Cuenta activada con éxito!", "tipo" => "Cliente");
+    }
+
+    $builder->where("email",base64_decode($email));
+
+    if($builder->update())
+      return $response;
+    else
+      return array("mensaje" => "Ha ocurrido un error", "tipo" => "");
+    
+
+
+  }
 
 }
