@@ -124,9 +124,9 @@
                                                 <li><a href="checkout.html">Checkout</a></li>
                                                 <li><a href="blog.html">Blog</a></li-->
                                                 <?php if (session()->get('isLoggedIn')): ?>
-                                                    <li><a href="/logout">Cerrar sesión</a></li>
+                                                    <li><a href="/logout">Cerrar sesiónes</a></li>
                                                 <?php else: ?>
-                                                    <li><a href="/login">Iniciar sesión</a></li>
+                                                    <li><a href="/login">Iniciar sesiónes</a></li>
                                                 <?php endif ?>
                                                 
                                             </ul>
