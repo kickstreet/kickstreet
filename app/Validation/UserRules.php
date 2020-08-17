@@ -15,4 +15,16 @@ class UserRules
 
     return password_verify($data['password'], $user['password']);
   }
+
+  public function activeUser(string $str, string $fields, array $data){
+    $model = new UserModel();
+    $user = $model->where('email', $data['email'])->where("estatus",'Activo')
+                  ->first();
+
+    if(!$user)
+      return false;
+
+    return true;
+  }
+
 }

@@ -5,7 +5,11 @@ $sidebar = view('plantilla/front_end/sidebar');
 $footer = view('plantilla/front_end/footer');
 $productos = view('front_end/'.$contenido); 
 
-if( $sidebar==1 )
-	echo $header.$sidebar.$productos.$footer;
-else
+if( isset($barra) ){
+	if( $barra==0 )
+		echo $header.$productos.$footer;
+	else
+		echo $header.$sidebar.$productos.$footer;
+}else{
 	echo $header.$productos.$footer;
+}
