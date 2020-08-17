@@ -38,6 +38,13 @@
               <input type="password" class="form-control" name="password_confirm" id="password_confirm" value="">
             </div>
           </div>
+            <div class="col-xs-12 col-sm-6">
+             <div class="form-group">
+              <label for="password_confirm">Tipo de cuenta</label><br>
+              <input type="radio" name="rol_id" id="" checked="checked" value="3"> Soy cliente<br>
+              <input type="radio" name="rol_id" id="" value="4"> Soy proveedor
+            </div>
+          </div>
           <?php if (isset($validation)): ?>
             <div class="col-xs-12">
               <div class="alert alert-danger" role="alert">
