@@ -14,14 +14,17 @@ class Users extends BaseController
 		if ($this->request->getMethod() == 'post') {
 			//let's do the validation here
 			$rules = [
-				'email' => 'required|min_length[6]|max_length[50]|valid_email',
-				'password' => 'required|min_length[8]|max_length[255]|validateUser[email,password]',
+				'email'     => 'required|min_length[6]|max_length[50]|valid_email',
+                'password'  => 'required|min_length[8]|max_length[255]|validateUser[email,password]|activeUser[email]',
+                
 			];
 
 			$errors = [
-				'password' => [
-					'validateUser' => 'Email or Password don\'t match'
-				]
+				'password'  => [
+                    'validateUser'  => 'Correo y/o cotraseña incorrectos',
+                    'activeUser'      => 'La cuenta no ha sido activada, por favor revisa tu bandeja de entrada y spam'
+                ],
+                
 			];
 
 			if (! $this->validate($rules, $errors)) {
@@ -85,11 +88,14 @@ class Users extends BaseController
 					'firstname' => $this->request->getVar('firstname'),
 					'lastname' => $this->request->getVar('lastname'),
 					'email' => $this->request->getVar('email'),
-					'password' => $this->request->getVar('password'),
+                    'password' => $this->request->getVar('password'),
+                    'rol_id' => $this->request->getVar('rol_id'),
 				];
 				$model->save($newData);
 				$session = session();
-				$session->setFlashdata('success', 'Registro exitoso!');
+                
+                $this->enviarActivacion($newData);
+                $session->setFlashdata('success', 'Registro exitoso, hemos enviado un mensaje a tu correo para activar tu cuenta, por favor revisa tu bandeja de spam');
 				return redirect()->to('/login');
 
 			}
@@ -153,7 +159,42 @@ class Users extends BaseController
 		return redirect()->to('/');
 	}
 
-	//--------------------------------------------------------------------
+    //--------------------------------------------------------------------
+    
 
+    function enviarActivacion($data){
+        $email = \Config\Services::email();
+        $email->setTo($data["email"]);
+        $mensaje = "Hola <b>".$data["firstname"]."</b> bienvenido a kickstreet, para activar tu cuenta por favor da click en el siguiente enlace:<br><br> <a href='https://".$_SERVER["SERVER_NAME"]."/users/activarCuenta/".base64_encode($data["email"])."'>https://".$_SERVER["SERVER_NAME"]."/users/activarCuenta/".base64_encode($data["email"])."</a>";
+        $email->setSubject('Activar cuenta');
+        $email->setMessage($mensaje);
+        $email->send();
+    }
+
+    function enviarAvisoAdministrador($data){
+        $email = \Config\Services::email();
+        $email->setTo(MAIL_ADMIN);
+        $mensaje = "Estimado administrador, se ha registrado el usuario <b>".$data."</b> de tipo proveedor y ha verificado su cuenta de correo, por favor acceda a la plataforma para activar su acceso<br><br> Ir a <a href='https://".$_SERVER["SERVER_NAME"]."/login'>kickstreethome</a>";
+        $email->setSubject('Registro de nuevo proveedor');
+        $email->setMessage($mensaje);
+        $email->send();
+    }
+
+    function activarCuenta($email){
+        $model = new UserModel();
+        $response = $model->activarCuenta($email);
+        $session = session();
+
+        if($response["tipo"] != ""){
+            $session->setFlashdata('success', $response["mensaje"]);
+            if($response["tipo"] == "Proveedor")
+                $this->enviarAvisoAdministrador(base64_decode($email));
+        }
+        else
+            $session->setFlashdata('error', $response["mensaje"]);
+
+		return redirect()->to('/login');
+        
+    }
 
 }
