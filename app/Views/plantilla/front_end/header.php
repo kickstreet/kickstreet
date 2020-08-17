@@ -216,7 +216,6 @@
                                             </div>
                                         </li>
                                         <li><a href="shop.html">Accessorios</a></li>
-                                        <li><a href="shop.html">FAQ</a></li>
                                     </ul>
                                 </nav>
                             </div>
