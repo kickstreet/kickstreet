@@ -45,39 +45,39 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="form_productos" action="#">
                     <div class="form-group">
                         <label for="codigo">Código</label>
-                        <input type="email" class="form-control" id="codigo" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" id="codigo" name="codigo" aria-describedby="emailHelp">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="producto">Producto</label>
-                            <input type="email" class="form-control" id="producto" aria-describedby="emailHelp">
+                            <input type="text" class="form-control" id="producto" name="producto" aria-describedby="emailHelp">
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="marca">Marca</label>
-                            <select class="form-control" id="marca">
-                                <option value="">Selecciona una opcion...</option>
-                                <?php foreach($marca as $reg){ ?>
-                                <option value="<?php echo $reg['id']; ?>"><?php echo $reg['marca']; ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="categoria">Categoria</label>
-                            <select class="form-control" id="categoria" onchange="get_talla();">
+                            <select class="form-control" id="categoria" name="categoria" onchange="get_talla();">
                                 <option value="">Selecciona una opcion...</option>
                                 <?php foreach($categoria as $reg){ ?>
                                 <option value="<?php echo $reg['id']; ?>"><?php echo $reg['categoria']; ?></option>
                                 <?php } ?>
                             </select>
                         </div> 
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="marca">Marca</label>
+                            <select class="form-control" id="marca" name="marca">
+                                <option value="">Selecciona una opcion...</option>
+                                <?php foreach($marca as $reg){ ?>
+                                <option value="<?php echo $reg['id']; ?>"><?php echo $reg['marca']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
                         <div class="form-group col-md-6">
                             <label for="tipo">Tipo</label>
-                            <select class="form-control" id="tipo" onchange="get_talla();">
+                            <select class="form-control" id="tipo" onchange="get_talla();" name="tipo">
                                 <option value="">Selecciona una opcion...</option>
                                 <?php foreach($tipo as $reg){ ?>
                                 <option value="<?php echo $reg['id']; ?>"><?php echo $reg['tipo']; ?></option>
@@ -88,22 +88,20 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="talla">Talla</label>
-                            <select class="form-control" id="talla">
-
-                            </select>
+                            <select class="form-control" id="talla" name="talla"></select>
                         </div> 
                         <div class="form-group col-md-6">
                             <label for="precio">Precio</label>
-                            <input type="text" class="form-control" id="precio">
+                            <input type="text" class="form-control" id="precio" name="precio">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="descripcion">Descripción</label>
-                        <textarea class="form-control" id="descripcion" rows="2" maxlength="250" style="resize: none"></textarea>
+                        <textarea class="form-control" id="descripcion" rows="2" maxlength="250" style="resize: none" name="descripcion"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="estatus">Estatus</label>
-                        <select class="form-control" id="estatus">
+                        <select class="form-control" id="estatus" name="estatus">
                             <option value="Activo">Activo</option>
                             <option value="Inactivo">Inactivo</option>
                         </select>
@@ -112,34 +110,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-primary" id="btn_guardar">Guardar</button>
             </div>
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    
-    function get_talla(){
-        
-        var categoria = $("#categoria").val(),
-            tipo = $("#tipo").val();
-        
-        
-        $.ajax({
-            url:'productos/tallas',
-            type:"POST",
-            data:'catagoria='+categoria+'&tipo='+tipo,
-            dataType:"json",
-            success: function(html){
-                var opciones = "<option value=''>Selecciona una opcion...</option>";
-                $.each(html, function(key,value) {
-                    opciones += "<option value='"+value.id+"'>"+value.talla+"</option>";
-                });
-                
-                $("#talla").html(opciones);
-            }
-        });
-    }
-    
-</script>
