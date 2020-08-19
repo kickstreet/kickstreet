@@ -56,6 +56,12 @@
 
   <!-- Custom scripts for all pages-->
   <script src="assets_admin/js/sb-admin-2.min.js"></script>
+  
+  <?php 
+    foreach($js_custom as $js)
+      echo $js; 
+  
+  ?> 
 
   <!-- Page level plugins 
   <script src="assets_admin/vendor/chart.js/Chart.min.js"></script>
