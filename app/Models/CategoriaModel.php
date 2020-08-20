@@ -24,8 +24,6 @@ class CategoriaModel extends Model{
     $data['data']['fecha_actualizacion'] = date('Y-m-d H:i:s');
     return $data;
   }
-<<<<<<< HEAD
-=======
 
   public function guardarImagen($data){
     $db      = \Config\Database::connect();
@@ -39,5 +37,4 @@ class CategoriaModel extends Model{
 
 
   }
->>>>>>> release
 }
