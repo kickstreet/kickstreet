@@ -68,7 +68,7 @@ class Productos extends BaseController{
         $productosModel = new ProductosModel();
         $productos = $productosModel->where('id_talla', '1')->findAll();
         $data['data'] = $productos;
-        print_r($data);
+        echo json_encode($data);
     }
     
 }
