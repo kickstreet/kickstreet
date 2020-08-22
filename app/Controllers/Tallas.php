@@ -24,7 +24,7 @@ class Tallas extends BaseController{
 		if ($this->request->getMethod() == 'post') {
 			//let's do the validation here
 			$rules = [
-				'talla'	=> 'required|min_length[3]|max_length[50]'
+				'talla'	=> 'required|min_length[1]|max_length[25]'
 			];
 
 			/*$errors = [
