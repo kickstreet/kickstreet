@@ -21,6 +21,14 @@
 
   <!-- Custom styles for this template-->
   <link href="assets_admin/css/sb-admin-2.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
+
+  <script type="text/javascript" src=""></script>
+  
+  
+ 
+
+
 
 </head>
 

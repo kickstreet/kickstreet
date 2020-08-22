@@ -7,6 +7,7 @@ use App\Models\MarcaModel;
 use App\Models\CategoriaModel;
 use App\Models\TipoModel;
 use App\Models\TallaModel;
+use App\Models\ProductosModel;
 
 class Productos extends BaseController{
 	public function index(){
@@ -25,6 +26,7 @@ class Productos extends BaseController{
             $datos["marca"] = $marca;
             $datos["categoria"] = $categoria;
             $datos["tipo"] = $tipo;
+            $datos["js_custom"][] = "<script src='assets_admin/js/adm_productos.js'></script>";
         	$pagina = view('plantilla/plantilla_backend', $datos);
 			return $pagina; 
             
@@ -39,6 +41,24 @@ class Productos extends BaseController{
         $tallaModel = new TallaModel();
         $talla = $tallaModel->where('id_categoria', $categoria)->where('id_tipo', $tipo)->findAll();    
         echo json_encode($talla);
+    }
+    
+    public function nuevo_producto(){
+        $request = \Config\Services::request();
+       
+        $data = [
+            'codigo' => $request->getPost('codigo'),
+            'producto' => $request->getPost('producto'),
+            'id_marca' => $request->getPost('marca'),
+            'id_talla' => $request->getPost('talla'),
+            'precio' => $request->getPost('precio'),
+            'descripcion' => $request->getPost('descripcion'),
+            'estatus' => $request->getPost('estatus'),
+            'fecha_alta' => date('Y-m-d H:i:s')
+        ];
+        
+        $productosModel = new ProductosModel();
+        echo $productosModel->save($data);    
     }
     
 }
