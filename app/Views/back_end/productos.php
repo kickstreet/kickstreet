@@ -15,7 +15,7 @@
         </div>
         <!-- Card Body -->
         <div class="card-body">
-            <table id="tablaCategorias" class="table table-hover table-striped table-bordered table-sm">
+            <table id="tablaProductos" class="table table-hover table-striped table-bordered table-sm">
                 <thead>
                     <tr>
                         <th>Código</th>

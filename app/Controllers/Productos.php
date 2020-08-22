@@ -27,6 +27,7 @@ class Productos extends BaseController{
             $datos["categoria"] = $categoria;
             $datos["tipo"] = $tipo;
             $datos["js_custom"][] = "<script src='assets_admin/js/adm_productos.js'></script>";
+            $datos["js_custom"][] = '<script src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>';
         	$pagina = view('plantilla/plantilla_backend', $datos);
 			return $pagina; 
             
@@ -39,7 +40,9 @@ class Productos extends BaseController{
         $categoria = $request->getPost('catagoria');
         $tipo = $request->getPost('tipo');
         $tallaModel = new TallaModel();
-        $talla = $tallaModel->where('id_categoria', $categoria)->where('id_tipo', $tipo)->findAll();    
+        $talla = $tallaModel->where('id_categoria', $categoria)
+                            ->where('id_tipo', $tipo)
+                            ->findAll();    
         echo json_encode($talla);
     }
     
@@ -59,6 +62,13 @@ class Productos extends BaseController{
         
         $productosModel = new ProductosModel();
         echo $productosModel->save($data);    
+    }
+    
+    public function lista_productos(){
+        $productosModel = new ProductosModel();
+        $productos = $productosModel->where('id_talla', '1')->findAll();
+        $data['data'] = $productos;
+        print_r($data);
     }
     
 }
