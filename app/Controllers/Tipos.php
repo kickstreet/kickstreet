@@ -1,19 +1,19 @@
 <?php namespace App\Controllers;
 
 use App\Controllers\Utils;
-use App\Models\CategoriaModel;
+use App\Models\TipoModel;
 
-class Categorias extends BaseController{
+class Tipos extends BaseController{
 	public function index(){
 		$utils	= new Utils();
 		// Validamos si es administrador
 		if($utils->esAdministrador()){
 			$datos["js_custom"][] = '<script src="/public/js/croppie.js"></script>';
-			$datos["js_custom"][] = '<script src="/public/js/categorias.js"></script>';
+			$datos["js_custom"][] = '<script src="/public/js/tipos.js"></script>';
 			$datos["js_custom"][] = '<script src="/public/js/catalogo.js"></script>';
 			$datos["js_custom"][] = '<script src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>';
 			
-			$datos["contenido"] = "categorias";
+			$datos["contenido"] = "tipos";
         	$pagina = view('plantilla/plantilla_backend', $datos);
 			return $pagina; 
 		}
@@ -24,7 +24,7 @@ class Categorias extends BaseController{
 		if ($this->request->getMethod() == 'post') {
 			//let's do the validation here
 			$rules = [
-				'categoria'	=> 'required|min_length[3]|max_length[50]'
+				'tipo'	=> 'required|min_length[3]|max_length[50]'
 			];
 
 			/*$errors = [
@@ -37,9 +37,9 @@ class Categorias extends BaseController{
 			if (! $this->validate($rules)) {
 				$response = array("success" => false, "mensaje" => $this->validator->listErrors());
 			}else{
-				$model = new CategoriaModel();
+				$model = new TipoModel();
 				$newData = [
-					'categoria' => $this->request->getVar('categoria'),
+					'tipo' => $this->request->getVar('tipo'),
 					'id_user' 	=> session()->get('id'),
 					'estatus' 	=> $this->request->getVar('estatus')
 				];
@@ -61,7 +61,7 @@ class Categorias extends BaseController{
 	}
 
 	function lista(){
-		$model = new CategoriaModel();
+		$model = new TipoModel();
 		$data = $model->findAll();
 		return json_encode(
 			array(
@@ -71,7 +71,7 @@ class Categorias extends BaseController{
 	}
 
 	function guardarImagen(){
-		$model = new CategoriaModel();
+		$model = new TipoModel();
 		$data = array(
 			"id" 		=> $this->request->getVar('id'),
 			"imagen"	=> $this->request->getVar('imagen')
@@ -81,7 +81,7 @@ class Categorias extends BaseController{
 	}
 
 	function obtenerRegistro($id){
-		$model = new CategoriaModel();
+		$model = new TipoModel();
 		$data = $model->find($id);
 		return json_encode(
 			array(
