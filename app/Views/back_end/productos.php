@@ -24,6 +24,7 @@
                         <th>Marca</th>
                         <th>Precio</th>
                         <th>Estatus</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
