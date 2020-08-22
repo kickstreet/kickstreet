@@ -20,6 +20,16 @@ $(document).ready(function () {
             }
         });
     });
+    
+    $('#tablaProductos').DataTable( {
+        "responsive": true,
+        "processing": true,
+        "serverSide": true,
+        "ajax": {
+            url: "productos/lista_productos",
+            type: 'post'
+        },
+    } );
 
 });
 

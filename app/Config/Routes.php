@@ -31,8 +31,6 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Inicio::index');
-$routes->post('tallas', 'Productos::tallas');
-$routes->post('nuevo_producto', 'Productos::nuevo_producto');
 
 $routes->match(['get','post'],'/registro', 'Users::register');
 $routes->match(['get','post'],'/login', 'Users::index');
@@ -42,6 +40,9 @@ $routes->match(['get','post'],'/logout', 'Users::logout');
 
 /* Rutas administracion  */
 $routes->get('/configuracion/categorias', 'Categorias::index');
+$routes->post('tallas', 'Productos::tallas');
+$routes->post('nuevo_producto', 'Productos::nuevo_producto');
+$routes->post('lista_productos', 'Productos::lista_productos');
 
 
 
