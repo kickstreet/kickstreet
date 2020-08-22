@@ -19,6 +19,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Registros</h6>
             </div>
             
+            
             <!-- Card Body -->
             <div class="card-body">
                 <table id="tablaRegistros" class="table table-hover table-striped table-bordered" style="width:100%">
