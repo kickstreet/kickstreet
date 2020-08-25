@@ -1,7 +1,7 @@
 <?php namespace App\Controllers;
 
 use App\Models\UserModel;
-
+use App\Controllers\Utils;
 
 class Users extends BaseController
 {
@@ -197,4 +197,48 @@ class Users extends BaseController
         
     }
 
+	function admin(){
+		$utils	= new Utils();
+		// Validamos si es administrador
+		if($utils->esAdministrador()){
+			$datos["js_custom"][] = '<script src="/public/js/croppie.js"></script>';
+			$datos["js_custom"][] = '<script src="/public/js/usuarios.js"></script>';
+			$datos["js_custom"][] = '<script src="/public/js/catalogo.js"></script>';
+			$datos["js_custom"][] = '<script src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>';
+			
+			$datos["contenido"] = "usuarios";
+        	$pagina = view('plantilla/plantilla_backend', $datos);
+			return $pagina; 
+		}
+	}
+
+	function lista(){
+		$model = new UserModel();
+		$data = $model->findAll();
+		return json_encode(
+			array(
+				"data" => $data
+			)
+		);
+	}
+
+	function registro($id){
+		$model = new UserModel();
+		$data = $model->find($id);
+		return json_encode(
+			array(
+				"data" => $data
+			)
+		);
+	}
+
+	function guardarImagen(){
+		$model = new UserModel();
+		$data = array(
+			"id" 		=> $this->request->getVar('id'),
+			"imagen"	=> $this->request->getVar('imagen')
+		);
+		$response = $model->guardarImagen($data);
+		echo json_encode($response);
+	}
 }

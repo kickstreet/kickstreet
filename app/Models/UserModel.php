@@ -57,7 +57,16 @@ class UserModel extends Model{
       return $response;
     else
       return array("mensaje" => "Ha ocurrido un error", "tipo" => "");
-    
+  }
+  public function guardarImagen($data){
+    $db      = \Config\Database::connect();
+    $builder = $db->table('users');
+    $builder->where("id",$data["id"]);
+    $builder->set("imagen",$data["imagen"]);
+    if($builder->update())
+      return array("success" =>true,"mensaje" => "Imagen actualizada con éxito","imagen" => $data["imagen"]);
+    else
+      return array("success" =>false,"mensaje" => "Ha ocurrido un error");
 
 
   }
