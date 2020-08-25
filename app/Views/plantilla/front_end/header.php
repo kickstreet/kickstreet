@@ -177,8 +177,9 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="logo">
+                                <br>
                                 <a href="/">
-                                    <img src="assets/img/logo.png" alt="">
+                                    <img src="assets/img/logo3.png" alt="">
                                 </a>
                             </div>
                         </div>
