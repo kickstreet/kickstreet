@@ -20,17 +20,28 @@ $(document).ready(function () {
             }
         });
     });
-    
-    $('#tablaProductos').DataTable( {
+
+    datos_tabla = $('#tablaProductos').DataTable({
         "responsive": true,
         "processing": true,
-        "serverSide": true,
         "ajax": {
             url: "productos/lista_productos",
             type: 'post'
         },
-    } );
-
+        "columns": [
+            { "data": "codigo" },
+            { "data": "producto" },
+            { "data": "id_talla" },
+            { "data": "id_marca" },
+            { "data": "precio" },
+            { "data": "status" },
+            { "data": null }
+        ],
+        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+            console.log(aData);
+            $("td:eq(6)", nRow).html("");
+        }
+    });
 });
 
 function get_talla() {

@@ -40,7 +40,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="product-title">
-                    <h2>productos destacados</h2>
+                    <h2>productos destacados test</h2>
                 </div>
             </div>
         </div>
