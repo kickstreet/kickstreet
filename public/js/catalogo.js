@@ -35,7 +35,7 @@ $('.crop_image').click(function(event){
         $("#mensajeCargando").removeClass("d-none");
         $(".modal-footer").addClass("d-none");
         $.ajax({
-            url:"/categorias/guardarImagen",
+            url: window.location.pathname + "/guardarImagen",
             type: "POST",
             dataType: "json",
             data:{

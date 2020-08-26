@@ -40,6 +40,14 @@ $routes->match(['get','post'],'/logout', 'Users::logout');
 
 /* Rutas administracion  */
 $routes->get('/configuracion/categorias', 'Categorias::index');
+$routes->get('/usuarios', 'Users::admin');
+$routes->get('/usuarios/lista', 'Users::lista');
+$routes->get('/usuarios/guardarImagen', 'Users::guardarImagen');
+$routes->post('/usuarios/guardar', 'Users::guardar');
+$routes->post('/usuarios/guardarImagen', 'Users::guardarImagen');
+$routes->get('/usuarios/obtenerRegistro/(:num)', 'Users::registro/$1');
+
+
 $routes->post('tallas', 'Productos::tallas');
 $routes->post('nuevo_producto', 'Productos::nuevo_producto');
 $routes->post('lista_productos', 'Productos::lista_productos');
