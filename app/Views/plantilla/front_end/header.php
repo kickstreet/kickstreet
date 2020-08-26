@@ -175,15 +175,14 @@
             <div class="mainmenu-area home2 product-items">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-sm-12">
                             <div class="logo">
-                                <br>
                                 <a href="/">
-                                    <img src="assets/img/logo3.png" alt="">
+                                    <img src="assets/img/logo1.png" alt="">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-9 col-sm-12">
                             <div class="mainmenu">
                                 <nav>
                                     <ul>
@@ -249,7 +248,6 @@
                                             </ul>
                                         </li>
                                         <li><a href="shop.html">Accessorios</a></li>
-                                        <li><a href="shop.html">FAQ</a></li>
                                     </ul>
                                 </nav>
                             </div>

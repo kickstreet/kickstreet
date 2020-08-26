@@ -199,8 +199,12 @@
         display: block;
     }
     .mainmenu-area .logo {
+        padding-top: 70px;
         position: relative;
         top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: #fff;
     }
     .account-menu ul li.search {
