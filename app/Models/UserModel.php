@@ -4,7 +4,7 @@ use CodeIgniter\Model;
 
 class UserModel extends Model{
   protected $table = 'users';
-  protected $allowedFields = ['firstname', 'lastname', 'email', 'password', 'rol_id', 'updated_at'];
+  protected $allowedFields = ['firstname', 'lastname', 'estatus', 'email', 'password', 'rol_id', 'updated_at'];
   protected $beforeInsert = ['beforeInsert'];
   protected $beforeUpdate = ['beforeUpdate'];
 
@@ -71,4 +71,14 @@ class UserModel extends Model{
 
   }
 
+  public function lista(){
+    $db      = \Config\Database::connect();
+    $builder = $db
+            ->table('users u')
+            ->join("cat_roles cr","cr.id = u.rol_id")
+            ->select("u.*, cr.rol");
+    $query = $builder->get()->getResult();
+
+    return $query;
+  }
 }

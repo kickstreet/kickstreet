@@ -214,7 +214,7 @@ class Users extends BaseController
 
 	function lista(){
 		$model = new UserModel();
-		$data = $model->findAll();
+		$data = $model->lista();
 		return json_encode(
 			array(
 				"data" => $data
@@ -240,5 +240,47 @@ class Users extends BaseController
 		);
 		$response = $model->guardarImagen($data);
 		echo json_encode($response);
+	}
+
+	function guardar(){
+		if ($this->request->getMethod() == 'post') {
+			//let's do the validation here
+			$rules = [
+				'firstname'	=> 'required|min_length[3]|max_length[50]'
+			];
+
+			/*$errors = [
+				''  => [
+                    'validateUser'  => 'Correo y/o cotraseña incorrectos',
+                    'activeUser'      => 'La cuenta no ha sido activada, por favor revisa tu bandeja de entrada y spam'
+                ],  
+			];*/
+
+			if (! $this->validate($rules)) {
+				$response = array("success" => false, "mensaje" => $this->validator->listErrors());
+			}else{
+				$model = new UserModel();
+				$newData = [
+					'firstname' 	=> $this->request->getVar('firstname'),
+					'lastname' 		=> $this->request->getVar('lastname'),
+					'email' 		=> $this->request->getVar('email'),
+					'estatus' 		=> $this->request->getVar('estatus'),
+					'rol_id'		=> $this->request->getVar('rol_id')
+				];
+
+				if($this->request->getVar('id')){
+					$newData["id"] = $this->request->getVar('id');
+					
+					$model->save($newData);
+				}
+				else
+					$model->save($newData);
+
+				$response = array("success" => true, "mensaje" => "Registro guardado con éxito");
+			}
+
+			echo json_encode($response);
+		}
+		
 	}
 }

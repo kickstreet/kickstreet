@@ -34,7 +34,6 @@ class CategoriaModel extends Model{
       return array("success" =>true,"mensaje" => "Imagen actualizada con éxito","imagen" => $data["imagen"]);
     else
       return array("success" =>false,"mensaje" => "Ha ocurrido un error");
-
-
   }
+  
 }

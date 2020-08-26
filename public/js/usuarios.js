@@ -4,20 +4,21 @@ var _columns  = [
         data: function (row, type, set) {
             let img = 
                 (row.imagen != "" && row.imagen != null)
-                ? "<img id='foto-id-"+row.id+"' src='"+row.imagen+"' width='48px' />" 
+                ? "<img id='foto-id-"+row.id+"' src='"+row.imagen+"' width='48px' style='border-radius:50%' />" 
                 : "<img id='foto-id-"+row.id+"' src='https://dummyimage.com/256x256/000/fff' width='48px' height='48px'/>";
             return  img;
         },
             className: "text-center" 
         },
-    {   
+        { data: "rol",className:"text-left"},
+        {   
         "data": function (row, type, set) {
             let label = row.firstname + " " + row.lastname;
             return label;
         },
         className: "text-center"
-    },
-    { data: "email",className:"text-center"},
+        },
+        { data: "email",className:"text-center"},
     { 
         "data": function (row, type, set) {
             let label = row.estatus == "Activo" ? "<label class='badge badge-success'>" + row.estatus + "</label>" : "<label class='badge badge-danger'>" + row.estatus + "</label>";

@@ -43,6 +43,8 @@ $routes->get('/configuracion/categorias', 'Categorias::index');
 $routes->get('/usuarios', 'Users::admin');
 $routes->get('/usuarios/lista', 'Users::lista');
 $routes->get('/usuarios/guardarImagen', 'Users::guardarImagen');
+$routes->post('/usuarios/guardar', 'Users::guardar');
+$routes->post('/usuarios/guardarImagen', 'Users::guardarImagen');
 $routes->get('/usuarios/obtenerRegistro/(:num)', 'Users::registro/$1');
 
 

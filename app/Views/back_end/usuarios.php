@@ -27,6 +27,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Imagen</th>
+                            <th>Rol</th>
                             <th>Usuario</th>
                             <th>Email</th>
                             <th>Estatus</th>
@@ -59,7 +60,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <input type="hidden" value="0" class="form-control" name="id" id="id">
-                                <input type="text" class="form-control" name="firtname" id="firstname">
+                                <input type="text" class="form-control" name="firstname" id="firstname">
                             </div>
                         </div>
                         <label class="col-12" for="">Apellido</label>
@@ -72,6 +73,17 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="email" id="email">
+                            </div>
+                        </div>
+                        <label class="col-12" for="">Rol</label>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <select name="rol_id" id="rol_id" class="form-control">
+                                    
+                                    <option value="2">Administrador</option>
+                                    <option value="3">Cliente</option>
+                                    <option value="4">Proveedor</option>
+                                </select>
                             </div>
                         </div>
                         <label class="col-12" for="">Estatus</label>
